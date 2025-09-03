@@ -28,27 +28,6 @@
     <meta name="theme-color" content="#0b1220" />
 
     <style>
-      /* Make all booking cards uniform */
-      .booking-card {
-        border-radius: 12px;
-        padding: 30px 20px;
-        color: white;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-        transition: transform 0.3s;
-
-        /* ✅ Add these for equal sizing */
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        min-height: 450px; /* adjust as needed */
-      }
-
-      /* Ensure button always stays at bottom */
-      .booking-card a {
-        margin-top: auto;
-      }
       .getyourguide {
         background: #ff7a1a;
         border-radius: 20px;
@@ -120,7 +99,6 @@
       .getyourguide .gyg-btn:hover {
         transform: scale(1.05);
       }
-
       /* Viator card background */
       .viator {
         background: #176b6c; /* Custom Viator background color */
@@ -202,100 +180,176 @@
         transform: scale(1.05);
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
       }
+      /* WhatsApp Box Background */
+.booking-box.whatsapp {
+  background: #25D366;
+  padding: 40px 20px;
+  border-radius: 25px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
 
-      /* WhatsApp Card */
-      .whatsapp {
-        background: #25d366; /* WhatsApp green */
-        border-radius: 20px;
-        padding: 30px;
-        color: #fff;
-        text-align: center;
-        max-width: 400px;
-        margin: auto;
-      }
+/* Title */
+.booking-box.whatsapp h3 {
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
 
-      /* Inner white box */
-      .whatsapp .inner-box {
-        background: #fff;
-        border-radius: 12px;
-        padding: 20px;
-        margin: 20px auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 15px;
-        color: #000;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      }
+/* White Card Inside */
+.whatsapp-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 20px 20px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 25px;
+}
 
-      /* Profile circle (left) */
-      .whatsapp .profile-img {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: #ddd;
-        border: 3px solid #25d366;
-        background-size: cover;
-        background-position: center;
-        flex-shrink: 0;
-      }
+/* Profile Image Placeholder */
+.whatsapp-card .profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #ddd; /* Placeholder grey */
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid #fff;
+}
 
-      /* Middle info */
-      .whatsapp .info {
-        flex: 1;
-        text-align: left;
-      }
+/* Contact Name + Subtitle */
+.contact-name {
+  margin-top: 50px; /* push text below profile */
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000;
+}
 
-      .whatsapp .info h4 {
-        margin: 0;
-        font-size: 1.1rem;
-        font-weight: bold;
-        color: #128c7e;
-      }
+.contact-sub {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 20px;
+}
 
-      .whatsapp .info p {
-        margin: 5px 0;
-        font-size: 0.9rem;
-        color: #63687a;
-      }
+/* QR Placeholder */
+.qr-placeholder {
+  width: 180px;
+  height: 180px;
+  background: #eee;
+  border-radius: 12px;
+  margin: 0 auto 10px;
+}
 
-      /* QR placeholder (right) */
-      .whatsapp .qr-placeholder {
-        width: 60px;
-        height: 60px;
-        background: #eee;
-        border-radius: 8px;
-        flex-shrink: 0;
-        overflow: hidden; /* ensures image doesn’t spill */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+/* Chat Button */
+.btn-chat {
+  display: inline-block;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
 
-      .whatsapp .qr-placeholder img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* makes sure it fills the square */
-        display: block;
-      }
+.btn-chat:hover {
+  background: #fff;
+  color: #25D366;
+  transform: translateY(-2px);
+}
+/* WhatsApp Outer Box (same as others) */
+.booking-box.whatsapp {
+  background: #25D366;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  color: #fff;
+  width: 300px;  /* match other boxes */
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
 
-      /* Button */
-      .whatsapp .btn-chat {
-        display: inline-block;
-        background: #50c878;
-        color: white;
-        padding: 12px 24px;
-        margin-top: 15px;
-        border-radius: 8px;
-        font-weight: bold;
-        text-decoration: none;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
+.booking-box.whatsapp h3 {
+  margin: 10px 0 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
 
-      .whatsapp .btn-chat:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-      }
+/* Inner white card */
+.whatsapp-inner {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-bottom: 15px;
+}
+
+/* Profile */
+.profile-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #ddd;
+  margin: 0 auto 10px;
+  border: 3px solid #25D366;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Contact text */
+.contact-name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+}
+
+.contact-sub {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* QR Placeholder */
+.qr-placeholder {
+  width: 160px;
+  height: 160px;
+  background: #eee;
+  border-radius: 10px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.qr-placeholder img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Chat Button */
+.btn-chat {
+  display: inline-block;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-chat:hover {
+  background: #fff;
+  color: #25D366;
+}
+
 
       /* Reset */
       * {
@@ -429,14 +483,12 @@
         margin-bottom: 40px;
       }
       .booking-grid {
-        display: flex;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 24px;
-        flex-wrap: nowrap; /* force a single row on large screens */
         max-width: 1100px;
         margin: auto;
       }
-
       .booking-card {
         border-radius: 12px;
         padding: 30px 20px;
@@ -445,20 +497,6 @@
         position: relative;
         overflow: hidden;
         transition: transform 0.3s;
-
-        /* Uniform size */
-        flex: 0 0 300px; /* exact width for all cards */
-        min-height: 450px; /* equal height */
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between; /* button at bottom */
-      }
-
-      /* Make it wrap on smaller screens */
-      @media (max-width: 1000px) {
-        .booking-grid {
-          flex-wrap: wrap;
-        }
       }
       .booking-card:hover {
         transform: translateY(-8px);
@@ -487,128 +525,51 @@
         background: #176b6c;
       }
       .whatsapp {
-        background: #51ce5e;
+        background: #25d366;
+      }
+
+      /* Stars */
+      .stars {
+        margin-top: 15px;
+        font-size: 1.6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-weight: bold;
+        color: #fff;
+      }
+      .star {
+        color: yellow;
+        text-shadow: 0 0 8px yellow, 0 0 14px yellow;
       }
 
       /* ================= ABOUT ================= */
-      .about-section {
+      .about {
         display: flex;
-        justify-content: center;
         align-items: center;
-        gap: 40px;
+        justify-content: center;
         padding: 80px 20px;
-        background: #fff;
-        flex-wrap: wrap;
-      }
-
-      .about-content {
-        display: flex;
         gap: 40px;
-        width: 100%;
-        max-width: 1200px;
-        flex-wrap: wrap;
+        background: white;
       }
-
       .about-text {
         flex: 1;
-        min-width: 300px;
+        max-width: 600px;
       }
-
       .about-text h2 {
         font-size: 2.5rem;
         margin-bottom: 20px;
-        color: #0b1220;
       }
-
       .about-text p {
         font-size: 1.1rem;
-        line-height: 1.6;
-        color: #333;
       }
-
-      .about-text .highlight {
-        font-weight: bold;
-        color: #ff7a1a;
-      }
-
-      .about-slider {
+      .about-image {
         flex: 1;
-        min-width: 300px;
-        position: relative;
-        overflow: hidden;
+      }
+      .about-image img {
+        width: 100%;
         border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        max-width: 600px;
-        height: 400px; /* ✅ fix image box height */
-      }
-
-      .slider-wrapper {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-        height: 100%; /* ✅ match parent height */
-      }
-
-      .slider-img {
-        min-width: 100%;
-        height: 100%; /* ✅ fill the box */
-        object-fit: cover; /* ✅ keeps images nicely cropped */
-        display: none;
-        border-radius: 12px;
-      }
-
-      .slider-img.active {
-        display: block;
-      }
-
-      .slider-btn {
-        position: absolute;
-        top: 0; /* full height */
-        bottom: 0; /* full height */
-        transform: none; /* remove vertical centering */
-        background: none;
-        border: none;
-        width: 80px; /* wider click/hover area */
-        cursor: pointer;
-        z-index: 10;
-        display: flex; /* center the icon */
-        align-items: center;
-        justify-content: center;
-        transition: background 0.2s ease;
-      }
-
-      .slider-btn svg {
-        width: 40px;
-        height: 40px;
-        fill: white;
-        transition: fill 0.3s;
-      }
-
-      .slider-btn:hover {
-        background: rgba(0, 0, 0, 0.1); /* light shade when hovering */
-      }
-
-      .slider-btn:hover svg {
-        fill: #ff7a1a; /* orange highlight */
-        transform: scale(1.2);
-      }
-
-      .slider-btn.prev {
-        left: 0;
-      }
-
-      .slider-btn.next {
-        right: 0;
-      }
-
-      /* Responsive */
-      @media (max-width: 900px) {
-        .about-content {
-          flex-direction: column;
-          align-items: center;
-        }
-        .about-slider {
-          max-width: 100%;
-        }
       }
 
       /* ================= CONTACT ================= */
@@ -681,6 +642,7 @@
       <h2>Choose Your Booking Option</h2>
       <div class="booking-grid">
         <!-- GetYourGuide -->
+        <!-- GetYourGuide -->
         <div class="booking-card getyourguide">
           <h3>Book on GetYourGuide</h3>
 
@@ -714,6 +676,7 @@
         </div>
 
         <!-- Viator -->
+        <!-- Viator -->
         <div class="booking-card viator">
           <h3>Book on Viator</h3>
           <div class="inner-box">
@@ -735,87 +698,45 @@
           >
         </div>
 
-        <!-- WhatsApp -->
-        <div class="booking-card whatsapp">
-          <h3>Book via WhatsApp</h3>
+       <!-- WhatsApp Booking Box -->
+<div class="booking-box whatsapp">
+  <img src="your-logo.png" alt="WhatsApp Logo" class="box-logo">
 
-          <!-- Inner white box -->
-          <div class="inner-box">
-            <!-- Left: Profile image -->
-            <div
-              class="profile-img"
-              style="background-image: url('images/profile.png')"
-            ></div>
+  <h3>Book Via WhatsApp</h3>
 
-            <!-- Middle: Name + Contact -->
-            <div class="info">
-              <h4>Asif</h4>
-              <p></p>
-            </div>
+  <div class="whatsapp-inner">
+    <!-- Profile Image -->
+    <div class="profile-img"></div>
 
-            <!-- Right: QR placeholder -->
-            <div class="qr-placeholder">
-              <img src="images/qr-code.png" alt="WhatsApp QR Code" />
-            </div>
-          </div>
+    <!-- Contact Info -->
+    <p class="contact-name">Your Name</p>
+    <p class="contact-sub">WhatsApp Contact</p>
 
-          <!-- Button -->
-          <a href="https://wa.me/+351929347422" target="_blank" class="btn-chat"
-            >Chat Now</a
-          >
-        </div>
-      </div>
-    </section>
-    <!-- ✅ properly closed -->
+    <!-- QR Code -->
+    <div class="qr-placeholder">
+      <!-- Example: <img src="your-qr.png" alt="WhatsApp QR"> -->
+    </div>
+  </div>
+
+  <!-- Button -->
+  <a href="https://wa.me/your-number" target="_blank" class="btn-chat">Chat Now</a>
+</div></section>
+
+
 
     <!-- About -->
-    <section id="about" class="about-section">
-      <div class="about-content">
-        <!-- Left: Text -->
-        <div class="about-text">
-          <h2>Discover Lisbon with us</h2>
-          <p>
-            Climb aboard an electric tuk-tuk and explore Lisbon with ease! Glide
-            through the city’s narrow streets, reaching spots cars and buses
-            can’t. From the open-air tuk-tuk, soak up panoramic views, vibrant
-            vibes, and fascinating stories that bring Lisbon to life. Stop at
-            iconic viewpoints like Miradouro da Senhora do Monte, Santa Luzia,
-            and Portas do Sol — and take home
-            <span class="highlight"
-              >free Polaroid pictures as a special keepsake</span
-            >.
-          </p>
-        </div>
-
-        <!-- Right: Image Slider -->
-        <div class="about-slider">
-          <div class="slider-wrapper">
-            <!-- Images will be added dynamically by JS -->
-          </div>
-          <button class="slider-btn prev">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="36"
-              height="36"
-              fill="white"
-              viewBox="0 0 24 24"
-            >
-              <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-            </svg>
-          </button>
-
-          <button class="slider-btn next">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="36"
-              height="36"
-              fill="white"
-              viewBox="0 0 24 24"
-            >
-              <path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z" />
-            </svg>
-          </button>
-        </div>
+    <section id="about" class="about">
+      <div class="about-text">
+        <h2>Why Choose Our Tuk-Tuk Tours?</h2>
+        <p>
+          Experience Lisbon like never before with our local guides. We’ll take
+          you through narrow streets, hidden gems, and the best viewpoints. Our
+          tours are personal, fun, and come with a special gift — instant
+          Polaroid photos to remember your adventure.
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="/images/about.webp" alt="Tuk-Tuk Tour in Lisbon" />
       </div>
     </section>
 
@@ -823,7 +744,7 @@
     <section id="contact" class="contact">
       <h2>Contact Us</h2>
       <p>Have questions or want to book directly with us? Reach out anytime.</p>
-      <a href="https://wa.me/+351929347422">Chat Now</a>
+      <a href="mailto:info@lisbontuktuktours.com">Email Us</a>
     </section>
 
     <!-- Footer -->
@@ -841,50 +762,6 @@
           header.classList.remove('scrolled')
         }
       })
-    </script>
-    <script>
-      // ================= IMAGE SLIDER DYNAMIC =================
-
-      // 1️⃣ Set folder path and image filenames
-      const imageFolder = 'images/about-slider/' // folder path
-      const imageFiles = ['about1.jpg', 'about2.jpg', 'about3.jpg'] // add your filenames here
-
-      // 2️⃣ Generate images dynamically
-      const sliderWrapper = document.querySelector('.slider-wrapper')
-      imageFiles.forEach((file, index) => {
-        const img = document.createElement('img')
-        img.src = imageFolder + file
-        img.alt = `Lisbon Tuk-Tuk Tour ${index + 1}`
-        img.classList.add('slider-img')
-        if (index === 0) img.classList.add('active')
-        sliderWrapper.appendChild(img)
-      })
-
-      // 3️⃣ Slider functionality
-      const slides = document.querySelectorAll('.slider-img')
-      const prevBtn = document.querySelector('.slider-btn.prev')
-      const nextBtn = document.querySelector('.slider-btn.next')
-      let currentIndex = 0
-
-      function showSlide(index) {
-        slides.forEach((slide, i) => {
-          slide.classList.remove('active')
-          if (i === index) slide.classList.add('active')
-        })
-      }
-
-      prevBtn.addEventListener('click', () => {
-        currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1
-        showSlide(currentIndex)
-      })
-
-      nextBtn.addEventListener('click', () => {
-        currentIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1
-        showSlide(currentIndex)
-      })
-
-      // Initialize
-      showSlide(currentIndex)
     </script>
   </body>
 </html>

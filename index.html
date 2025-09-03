@@ -646,6 +646,88 @@
         background: #0b1220;
         color: white;
       }
+      /* Hamburger button */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+      }
+
+      .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: white;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      /* Hamburger animation to X */
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      /* Mobile styles */
+      @media (max-width: 900px) {
+        header {
+          flex-wrap: wrap;
+          gap: 0;
+          padding: 15px 20px;
+          justify-content: space-between;
+        }
+
+        header .logo img {
+          height: 60px;
+        }
+
+        nav {
+          display: none !important; /* hide by default on mobile */
+          flex-direction: column;
+          width: 100%;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          padding: 10px 0;
+          z-index: 999;
+
+          /* Stylish frosted background */
+          background: rgba(
+            255,
+            255,
+            255,
+            0.15
+          ); /* whiteish & semi-transparent */
+          backdrop-filter: blur(12px); /* blur effect */
+          -webkit-backdrop-filter: blur(12px); /* Safari support */
+          border-radius: 12px; /* optional rounded edges */
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* subtle shadow for depth */
+        }
+
+        nav a {
+          padding: 16px 20px;
+          font-size: 18px;
+          color: #1a2b49 !important; /* black links look better on light blur */
+          transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+          color: #ff7a1a; /* highlight on hover */
+        }
+
+        nav.show {
+          display: flex !important; /* show when hamburger clicked */
+        }
+
+        .hamburger {
+          display: flex;
+        }
+      }
     </style>
   </head>
   <body>
@@ -656,14 +738,21 @@
           <img src="/images/android-chrome-512x512.png" alt="Company Logo" />
         </a>
       </div>
-      <nav>
+
+      <!-- Hamburger button -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav id="nav-menu">
         <a href="#top">Home</a>
         <a href="#booking">Shop</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
-
     <!-- Hero -->
     <section id="top" class="hero">
       <div class="hero-inner">
@@ -839,6 +928,36 @@
           header.classList.add('scrolled')
         } else {
           header.classList.remove('scrolled')
+        }
+      })
+      const hamburger = document.getElementById('hamburger')
+      const navMenu = document.getElementById('nav-menu')
+
+      // Toggle menu on hamburger click
+      hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('show')
+        hamburger.classList.toggle('active')
+      })
+
+      // Close menu when a nav link is clicked (mobile)
+      navMenu.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A' && navMenu.classList.contains('show')) {
+          navMenu.classList.remove('show')
+          hamburger.classList.remove('active')
+        }
+      })
+      // Close mobile nav when clicking outside
+      document.addEventListener('click', (e) => {
+        const isClickInsideMenu = navMenu.contains(e.target)
+        const isClickOnHamburger = hamburger.contains(e.target)
+
+        if (
+          !isClickInsideMenu &&
+          !isClickOnHamburger &&
+          navMenu.classList.contains('show')
+        ) {
+          navMenu.classList.remove('show')
+          hamburger.classList.remove('active')
         }
       })
     </script>

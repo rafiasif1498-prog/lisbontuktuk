@@ -3,9 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lisbon Tuk-Tuk Tours</title>
+    <title>Lisbon Tuk-Tuk Tours | Discover Lisbon Like a Local</title>
 
-    <!-- Google tag (gtag.js) -->
+    <!-- SEO Meta -->
+    <meta
+      name="description"
+      content="Explore Lisbon with our electric Tuk-Tuk tours. Glide through Alfama, Belém, Baixa and Chiado with a friendly guide and take home free Polaroid memories."
+    />
+    <meta
+      name="keywords"
+      content="Lisbon Tuk Tuk, Tuk Tuk Tours Lisbon, Lisbon sightseeing, Alfama tours, Lisbon travel"
+    />
+    <meta name="author" content="Lisbon Tuk-Tuk Tours" />
+
+    <!-- Google Ads Global site tag -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=AW-17502199086"
@@ -16,8 +27,23 @@
         dataLayer.push(arguments)
       }
       gtag('js', new Date())
-
       gtag('config', 'AW-17502199086')
+    </script>
+
+    <!-- Event snippet for Page view conversion -->
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof url !== 'undefined') {
+            window.location = url
+          }
+        }
+        gtag('event', 'conversion', {
+          send_to: 'AW-17502199086/52qqCOzGkJUbEK662ZlB',
+          event_callback: callback,
+        })
+        return false
+      }
     </script>
 
     <!-- Favicon -->
@@ -753,7 +779,11 @@
     <header>
       <div class="logo">
         <a href="#top">
-          <img src="/images/android-chrome-512x512.png" alt="Company Logo" />
+          <img
+            src="/images/android-chrome-512x512.png"
+            alt="Company Logo"
+            loading="lazy"
+          />
         </a>
       </div>
 
@@ -798,6 +828,7 @@
               src="images/logogyg.png"
               alt="GetYourGuide Logo"
               class="logo"
+              loading="lazy"
             />
             <div class="info">
               <h4>Traveler Favorite</h4>
@@ -814,10 +845,11 @@
 
           <!-- Book button -->
           <a
-            href="https://www.getyourguide.com/activity/-t777015?partner_id=8UPSSJO&utm_source=YOUR_DOMAIN&utm_medium=cpc&utm_campaign=tuk_tuk_lisbon"
+            href="https://www.getyourguide.com/activity/-t777015?partner_id=8UPSSJO"
             target="_blank"
+            rel="noopener noreferrer"
             class="gyg-btn"
-            onclick="gtag('event','conversion',{ 'send_to':'AW-17502199086/YourGetYourGuideLabel' });"
+            onclick="return gtag_report_conversion('https://www.getyourguide.com/activity/-t777015?partner_id=8UPSSJO');"
           >
             Book Now
           </a>
@@ -827,7 +859,12 @@
         <div class="booking-card viator">
           <h3>Book on Viator</h3>
           <div class="inner-box">
-            <img src="images/viator-logo.png" alt="Viator Logo" class="logo" />
+            <img
+              src="images/viator-logo.png"
+              alt="Viator Logo"
+              class="logo"
+              loading="lazy"
+            />
             <div class="info">
               <h4>Top Rated Experience</h4>
               <p>Highly recommended tour with 5-star reviews from travelers.</p>
@@ -840,8 +877,9 @@
           <a
             href="https://www.viator.com/tours/Lisbon/Lisbon-Historic-Tuk-Tuk-Adventure/d538-5501668P1"
             target="_blank"
+            rel="noopener noreferrer"
             class="viator-btn"
-            onclick="gtag('event','conversion',{ 'send_to':'AW-17502199086/YourViatorLabel' });"
+            onclick="return gtag_report_conversion('https://www.viator.com/tours/Lisbon/Lisbon-Historic-Tuk-Tuk-Adventure/d538-5501668P1');"
           >
             Book Now
           </a>
@@ -867,7 +905,11 @@
 
             <!-- Right: QR placeholder -->
             <div class="qr-placeholder">
-              <img src="images/qr-code.png" alt="WhatsApp QR Code" />
+              <img
+                src="images/qr-code.png"
+                alt="WhatsApp QR Code"
+                loading="lazy"
+              />
             </div>
           </div>
 
@@ -875,8 +917,9 @@
           <a
             href="https://wa.me/+351929347422"
             target="_blank"
+            rel="noopener noreferrer"
             class="btn-chat"
-            onclick="gtag('event','conversion',{ 'send_to':'AW-17502199086/YourWhatsAppLabel' });"
+            onclick="return gtag_report_conversion('https://wa.me/+351929347422');"
           >
             Chat Now
           </a>
@@ -1029,6 +1072,7 @@
         const img = document.createElement('img')
         img.src = imageFolder + file
         img.alt = `Lisbon Tuk-Tuk Tour ${index + 1}`
+        img.loading = 'lazy' // ✅ lazy load slider images
         img.classList.add('slider-img')
         if (index === 0) img.classList.add('active')
         sliderWrapper.appendChild(img)

@@ -33,16 +33,16 @@
     <!-- Event snippet for Page view conversion -->
     <script>
       function gtag_report_conversion(url) {
-        var callback = function () {
-          if (typeof url !== 'undefined') {
-            window.location = url
-          }
-        }
         gtag('event', 'conversion', {
-          send_to: 'AW-17502199086/52qqCOzGkJUbEK662ZlB',
-          event_callback: callback,
+          send_to: 'AW-17502199086/a_gFCKOlqZYbEK662ZlB', // replace with your conversion label
+          event_callback: function () {
+            if (url) {
+              // open external link safely
+              window.open(url, '_blank')
+            }
+          },
         })
-        return false
+        return false // prevent default immediately
       }
     </script>
 
@@ -922,10 +922,8 @@
           <!-- Button -->
           <a
             href="https://wa.me/+351929347422"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-chat"
             onclick="return gtag_report_conversion('https://wa.me/+351929347422');"
+            class="btn-chat"
           >
             Chat Now
           </a>

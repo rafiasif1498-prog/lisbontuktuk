@@ -34,15 +34,18 @@
     <script>
       function gtag_report_conversion(url) {
         gtag('event', 'conversion', {
-          send_to: 'AW-17502199086/a_gFCKOlqZYbEK662ZlB', // replace with your conversion label
-          event_callback: function () {
-            if (url) {
-              // open external link safely
-              window.open(url, '_blank')
-            }
-          },
+          send_to: 'AW-17502199086/a_gFCKOlqZYbEK662ZlB',
         })
-        return false // prevent default immediately
+
+        // Only scroll if url is an internal anchor
+        if (url && url.startsWith('#')) {
+          document.querySelector(url).scrollIntoView({ behavior: 'smooth' })
+        } else if (url) {
+          // external links
+          window.open(url, '_blank')
+        }
+
+        return false // prevent default
       }
     </script>
 
